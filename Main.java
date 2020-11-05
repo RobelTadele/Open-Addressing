@@ -1,4 +1,4 @@
-package com.Robel;
+
 
 public class Main {
 
@@ -6,16 +6,16 @@ public class Main {
 
         HashTable myTable = new HashTable(11);
 
-        String a1 = "RTX60";
-        String a2 = "RTX70";
-        String a3 = "RTX80";
-        String a4 = "RTX90";
-        String a5 = "RTX100";
-        String a6 = "RTX60";
-        String a7 = "RTX70";
-        String a8 = "RTX80";
-        String a9 = "RTX90";
-        String a10 = "RTX080";
+        String a1 = "hello1";
+        String a2 = "hello2";
+        String a3 = "hello3";
+        String a4 = "hello4";
+        String a5 = "hello5";
+        String a6 = "hello6";
+        String a7 = "hello7";
+        String a8 = "hello8";
+        String a9 = "hello9";
+        String a10 = "hello10";
 
 
 
