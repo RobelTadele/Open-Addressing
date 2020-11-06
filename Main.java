@@ -1,52 +1,43 @@
+/*
+File or Class name: Main
+Program author(s): Robel Tadele
+Course number and title: COSC2203, Data Structures Section 1
+Assignment number and name: Open Addressing
 
+Brief description of the purpose of the program: Finding how many words can be placed in an open
+addressing hash table with and without collision using Linear Probing and Quadratic Probing
+
+ */
+
+package com.Robel;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
-        HashTable myTable = new HashTable(11);
+        //Read in text file
+        File file = new File("dictionary.txt");
+        Scanner reader = new Scanner(file);
 
-        String a1 = "hello1";
-        String a2 = "hello2";
-        String a3 = "hello3";
-        String a4 = "hello4";
-        String a5 = "hello5";
-        String a6 = "hello6";
-        String a7 = "hello7";
-        String a8 = "hello8";
-        String a9 = "hello9";
-        String a10 = "hello10";
+        int loadFactor = 70;  //Change with Increments of 5 :Load Factor
 
+        int nelements = 45_403; //Number of Elements
 
+        //Number of available spaces
+        int bSpaces = (int)Math.ceil((nelements * 100.0)/ loadFactor);
+        //System.out.println(bSpaces);
 
-       /* myTable.linearProbing(a1);
-        myTable.linearProbing(a2);
-        myTable.linearProbing(a3);
-        myTable.linearProbing(a4);
-        myTable.linearProbing(a5);
-        myTable.linearProbing(a6);
-        myTable.linearProbing(a7);
-        myTable.linearProbing(a8);
-        myTable.linearProbing(a9);
-        myTable.linearProbing(a10);*/
+        HashTable myTable = new HashTable(bSpaces);
 
+        for (int i = 0; i < nelements; i++) {
+            myTable.quadraticProbing(reader.nextLine());
+        }
 
-
-        myTable.quadraticProbing(a1);
-        myTable.quadraticProbing(a2);
-        myTable.quadraticProbing(a3);
-        myTable.quadraticProbing(a4);
-        myTable.quadraticProbing(a5);
-        myTable.quadraticProbing(a6);
-        myTable.quadraticProbing(a7);
-        myTable.quadraticProbing(a8);
-        myTable.quadraticProbing(a9);
-        myTable.quadraticProbing(a10);
-
-
-
+        //Prints Number of Collisions and Non-Collision inserts
         myTable.printer();
-        System.out.println("Collisions: " + myTable.collisions);
 
     }
 }
